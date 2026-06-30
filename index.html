@@ -8,267 +8,85 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-/* ─── reset & base ─────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy:      #0D1B2A;
-  --navy-card: #152233;
-  --navy-hover:#1A2D44;
-  --cyan:      #00C2FF;
-  --cyan-dim:  #0099CC;
-  --white:     #F0F6FF;
-  --slate:     #8FA3B1;
-  --slate-dim: #556977;
-  --border:    #1E3448;
-
-  --domain-banking:    #00C2FF;
-  --domain-healthcare: #00E5A0;
-  --domain-travel:     #FF8C42;
-  --domain-education:  #A78BFA;
-  --domain-marketing:  #F472B6;
-
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'DM Mono', monospace;
-
-  --radius: 10px;
-  --transition: 0.22s cubic-bezier(.4,0,.2,1);
+  --navy:#0D1B2A;--navy-card:#152233;--navy-hover:#1A2D44;
+  --cyan:#00C2FF;--cyan-dim:#0099CC;
+  --white:#F0F6FF;--slate:#8FA3B1;--slate-dim:#556977;--border:#1E3448;
+  --domain-banking:#00C2FF;--domain-healthcare:#00E5A0;
+  --domain-travel:#FF8C42;--domain-education:#A78BFA;--domain-marketing:#F472B6;
+  --font-body:'Inter',sans-serif;--font-mono:'DM Mono',monospace;
+  --radius:10px;--transition:0.22s cubic-bezier(.4,0,.2,1);
 }
 html{scroll-behavior:smooth}
-body{
-  background:var(--navy);
-  color:var(--white);
-  font-family:var(--font-body);
-  font-size:15px;
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-}
-a{color:var(--cyan);text-decoration:none}
-a:hover{text-decoration:underline}
-
-/* ─── layout ────────────────────────────────────────────────────── */
+body{background:var(--navy);color:var(--white);font-family:var(--font-body);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}
 .wrap{max-width:860px;margin:0 auto;padding:0 24px}
 
-/* ─── header ────────────────────────────────────────────────────── */
-header{
-  padding:64px 0 48px;
-  border-bottom:1px solid var(--border);
-}
+/* header */
+header{padding:64px 0 48px;border-bottom:1px solid var(--border)}
 .header-inner{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
-.header-left{}
-.name{
-  font-size:clamp(28px,5vw,44px);
-  font-weight:700;
-  letter-spacing:-0.03em;
-  line-height:1.1;
-  color:var(--white);
-}
+.name{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-0.03em;line-height:1.1;color:var(--white)}
 .name span{color:var(--cyan)}
-.title-line{
-  margin-top:10px;
-  font-size:14px;
-  font-weight:500;
-  color:var(--slate);
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-}
-.contact{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-end;
-  gap:6px;
-  font-size:13px;
-  color:var(--slate);
-  font-family:var(--font-mono);
-}
-.contact a{color:var(--slate)}
-.contact a:hover{color:var(--cyan)}
-.cert-row{
-  display:flex;gap:8px;margin-top:20px;flex-wrap:wrap;
-}
-.cert{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:5px 12px;
-  background:rgba(0,194,255,.08);
-  border:1px solid rgba(0,194,255,.25);
-  border-radius:20px;
-  font-size:12px;
-  font-weight:500;
-  color:var(--cyan);
-  font-family:var(--font-mono);
-}
+.title-line{margin-top:10px;font-size:14px;font-weight:500;color:var(--slate);letter-spacing:0.08em;text-transform:uppercase}
+.contact{display:flex;flex-direction:column;align-items:flex-end;gap:6px;font-size:13px;color:var(--slate);font-family:var(--font-mono)}
+.contact a{color:var(--slate)}.contact a:hover{color:var(--cyan)}
+.cert-row{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.cert{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(0,194,255,.08);border:1px solid rgba(0,194,255,.25);border-radius:20px;font-size:12px;font-weight:500;color:var(--cyan);font-family:var(--font-mono)}
 .cert::before{content:"✦";font-size:9px}
 
-/* ─── stats bar ─────────────────────────────────────────────────── */
-.stats{
-  display:flex;gap:0;
-  margin:40px 0 0;
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  overflow:hidden;
-}
-.stat{
-  flex:1;
-  padding:18px 16px;
-  text-align:center;
-  border-right:1px solid var(--border);
-}
+/* stats */
+.stats{display:flex;gap:0;margin:40px 0 0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.stat{flex:1;padding:18px 16px;text-align:center;border-right:1px solid var(--border)}
 .stat:last-child{border-right:none}
-.stat-num{
-  font-size:26px;font-weight:700;
-  color:var(--cyan);
-  font-variant-numeric:tabular-nums;
-  letter-spacing:-0.02em;
-}
+.stat-num{font-size:26px;font-weight:700;color:var(--cyan);font-variant-numeric:tabular-nums;letter-spacing:-0.02em}
 .stat-label{font-size:11px;color:var(--slate);margin-top:2px;text-transform:uppercase;letter-spacing:0.06em}
 
-/* ─── filter bar ────────────────────────────────────────────────── */
-.filter-section{
-  position:sticky;top:0;z-index:100;
-  background:rgba(13,27,42,0.92);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-  padding:14px 0;
-}
+/* filter */
+.filter-section{position:sticky;top:0;z-index:100;background:rgba(13,27,42,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 0}
 .filter-wrap{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .filter-label{font-size:11px;color:var(--slate-dim);letter-spacing:0.08em;text-transform:uppercase;margin-right:4px;white-space:nowrap}
-.filter-btn{
-  padding:6px 14px;
-  border-radius:20px;
-  border:1px solid var(--border);
-  background:transparent;
-  color:var(--slate);
-  font-family:var(--font-body);
-  font-size:12px;
-  font-weight:500;
-  cursor:pointer;
-  transition:all var(--transition);
-  white-space:nowrap;
-}
+.filter-btn{padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--slate);font-family:var(--font-body);font-size:12px;font-weight:500;cursor:pointer;transition:all var(--transition);white-space:nowrap}
 .filter-btn:hover{border-color:var(--slate);color:var(--white)}
-.filter-btn.active{
-  border-color:var(--cyan);
-  background:rgba(0,194,255,.1);
-  color:var(--cyan);
-}
+.filter-btn.active{border-color:var(--cyan);background:rgba(0,194,255,.1);color:var(--cyan)}
 
-/* ─── domain section ─────────────────────────────────────────────── */
+/* domain section */
 .domain-section{padding:48px 0 0}
-.domain-header{
-  display:flex;align-items:center;gap:16px;
-  margin-bottom:28px;
-}
-.domain-dot{
-  width:10px;height:10px;border-radius:50%;flex-shrink:0;
-}
-.domain-name{
-  font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
-  font-weight:600;color:var(--slate);
-}
+.domain-header{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.domain-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.domain-name{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;color:var(--slate)}
 .domain-line{flex:1;height:1px;background:var(--border)}
 
-/* ─── project card ───────────────────────────────────────────────── */
-.card{
-  background:var(--navy-card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:28px 28px 24px;
-  margin-bottom:20px;
-  position:relative;
-  overflow:hidden;
-  transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition);
-  opacity:0;
-  transform:translateY(16px);
-}
+/* card */
+.card{background:var(--navy-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 28px 24px;margin-bottom:20px;position:relative;overflow:hidden;transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition);opacity:0;transform:translateY(16px)}
 .card.visible{opacity:1;transform:translateY(0)}
-.card::before{
-  content:"";
-  position:absolute;left:0;top:0;bottom:0;
-  width:3px;
-  border-radius:3px 0 0 3px;
-}
-.card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 32px rgba(0,0,0,.4);
-  border-color:var(--slate-dim);
-}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.4);border-color:var(--slate-dim)}
 .card[data-domain="banking"]::before{background:var(--domain-banking)}
 .card[data-domain="healthcare"]::before{background:var(--domain-healthcare)}
 .card[data-domain="travel"]::before{background:var(--domain-travel)}
 .card[data-domain="education"]::before{background:var(--domain-education)}
 .card[data-domain="marketing"]::before{background:var(--domain-marketing)}
-
-.card-head{
-  display:flex;justify-content:space-between;align-items:flex-start;
-  gap:16px;flex-wrap:wrap;margin-bottom:10px;
-}
-.card-name{
-  font-size:17px;font-weight:600;
-  color:var(--white);
-  line-height:1.3;
-}
-.card-duration{
-  font-family:var(--font-mono);
-  font-size:12px;color:var(--slate);
-  white-space:nowrap;flex-shrink:0;
-  padding-top:3px;
-}
-.card-meta{
-  display:flex;gap:20px;flex-wrap:wrap;
-  margin-bottom:14px;
-  font-size:13px;
-}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.card-name{font-size:17px;font-weight:600;color:var(--white);line-height:1.3}
+.card-duration{font-family:var(--font-mono);font-size:12px;color:var(--slate);white-space:nowrap;flex-shrink:0;padding-top:3px}
+.card-meta{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:14px;font-size:13px}
 .meta-item{display:flex;gap:5px;align-items:baseline}
 .meta-label{color:var(--slate-dim);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;white-space:nowrap}
 .meta-value{color:var(--slate);font-weight:500}
 .meta-value.client-name{color:var(--white)}
-
-.tech-row{
-  display:flex;flex-wrap:wrap;gap:6px;
-  margin-bottom:18px;
-}
-.tag{
-  font-family:var(--font-mono);
-  font-size:11px;
-  padding:3px 9px;
-  border-radius:4px;
-  background:rgba(255,255,255,.05);
-  color:var(--slate);
-  border:1px solid var(--border);
-  transition:all var(--transition);
-}
+.tech-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.tag{font-family:var(--font-mono);font-size:11px;padding:3px 9px;border-radius:4px;background:rgba(255,255,255,.05);color:var(--slate);border:1px solid var(--border);transition:all var(--transition)}
 .card:hover .tag{background:rgba(255,255,255,.07)}
-
 .divider{height:1px;background:var(--border);margin-bottom:16px}
-
 .highlights{list-style:none;display:flex;flex-direction:column;gap:9px}
-.highlights li{
-  display:flex;gap:10px;
-  font-size:14px;color:#BFD0DE;
-  line-height:1.55;
-}
-.highlights li::before{
-  content:"▸";
-  color:var(--cyan);
-  flex-shrink:0;
-  margin-top:1px;
-  font-size:11px;
-}
+.highlights li{display:flex;gap:10px;font-size:14px;color:#BFD0DE;line-height:1.55}
+.highlights li::before{content:"▸";color:var(--cyan);flex-shrink:0;margin-top:1px;font-size:11px}
 .card[data-domain="healthcare"] .highlights li::before{color:var(--domain-healthcare)}
 .card[data-domain="travel"] .highlights li::before{color:var(--domain-travel)}
 .card[data-domain="education"] .highlights li::before{color:var(--domain-education)}
 .card[data-domain="marketing"] .highlights li::before{color:var(--domain-marketing)}
-
-.impact{
-  margin-top:18px;
-  padding:12px 16px;
-  background:rgba(0,194,255,.05);
-  border:1px solid rgba(0,194,255,.15);
-  border-radius:6px;
-  font-size:13px;
-  line-height:1.55;
-  color:var(--slate);
-}
+.impact{margin-top:18px;padding:12px 16px;background:rgba(0,194,255,.05);border:1px solid rgba(0,194,255,.15);border-radius:6px;font-size:13px;line-height:1.55;color:var(--slate)}
 .impact strong{color:var(--cyan);margin-right:6px}
 .card[data-domain="healthcare"] .impact{background:rgba(0,229,160,.05);border-color:rgba(0,229,160,.15)}
 .card[data-domain="healthcare"] .impact strong{color:var(--domain-healthcare)}
@@ -277,38 +95,16 @@ header{
 .card[data-domain="education"] .impact{background:rgba(167,139,250,.05);border-color:rgba(167,139,250,.15)}
 .card[data-domain="education"] .impact strong{color:var(--domain-education)}
 
-/* ─── footer ─────────────────────────────────────────────────────── */
-footer{
-  margin-top:80px;
-  padding:40px 0;
-  border-top:1px solid var(--border);
-  text-align:center;
-  color:var(--slate-dim);
-  font-size:13px;
-}
+/* footer */
+footer{margin-top:80px;padding:40px 0;border-top:1px solid var(--border);text-align:center;color:var(--slate-dim);font-size:13px}
 footer a{color:var(--slate);transition:color var(--transition)}
 footer a:hover{color:var(--cyan);text-decoration:none}
 .footer-name{font-weight:600;color:var(--slate);margin-bottom:6px}
-
-/* ─── hidden state for filtering ────────────────────────────────── */
 .card.hidden{display:none}
 .domain-section.hidden{display:none}
-
-/* ─── no results ─────────────────────────────────────────────────── */
-.no-results{
-  text-align:center;padding:60px 0;
-  color:var(--slate-dim);font-size:15px;
-  display:none;
-}
+.no-results{text-align:center;padding:60px 0;color:var(--slate-dim);font-size:15px;display:none}
 .no-results.show{display:block}
-
-/* ─── reduced motion ─────────────────────────────────────────────── */
-@media(prefers-reduced-motion:reduce){
-  .card{opacity:1;transform:none;transition:none}
-  .card:hover{transform:none}
-}
-
-/* ─── responsive ─────────────────────────────────────────────────── */
+@media(prefers-reduced-motion:reduce){.card{opacity:1;transform:none;transition:none}.card:hover{transform:none}}
 @media(max-width:600px){
   .header-inner{flex-direction:column;align-items:flex-start}
   .contact{align-items:flex-start}
@@ -321,7 +117,6 @@ footer a:hover{color:var(--cyan);text-decoration:none}
 </head>
 <body>
 
-<!-- ── HEADER ──────────────────────────────────────────────────── -->
 <header>
   <div class="wrap">
     <div class="header-inner">
@@ -341,38 +136,129 @@ footer a:hover{color:var(--cyan);text-decoration:none}
         <span style="font-size:11px;color:var(--slate-dim);margin-top:4px">H-1B · Authorized to work in the US</span>
       </div>
     </div>
-
     <div class="stats">
       <div class="stat"><div class="stat-num">13+</div><div class="stat-label">Years Experience</div></div>
-      <div class="stat"><div class="stat-num">13</div><div class="stat-label">Projects Delivered</div></div>
+      <div class="stat"><div class="stat-num">15</div><div class="stat-label">Projects Delivered</div></div>
       <div class="stat"><div class="stat-num">5</div><div class="stat-label">Industry Domains</div></div>
-      <div class="stat"><div class="stat-num">8+</div><div class="stat-label">Angular Versions</div></div>
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Angular Versions</div></div>
     </div>
   </div>
 </header>
 
-<!-- ── FILTER BAR ──────────────────────────────────────────────── -->
 <div class="filter-section">
   <div class="wrap">
     <div class="filter-wrap">
       <span class="filter-label">Filter by</span>
       <button class="filter-btn active" data-filter="all">All Projects</button>
-      <button class="filter-btn" data-filter="banking">Banking &amp; BFS</button>
       <button class="filter-btn" data-filter="healthcare">Healthcare</button>
+      <button class="filter-btn" data-filter="banking">Banking &amp; BFS</button>
       <button class="filter-btn" data-filter="travel">Travel</button>
       <button class="filter-btn" data-filter="education">Education</button>
-      <button class="filter-btn" data-filter="marketing">Digital Marketing & E-Commerce</button>
+      <button class="filter-btn" data-filter="marketing">Marketing</button>
     </div>
   </div>
 </div>
 
-<!-- ── MAIN ────────────────────────────────────────────────────── -->
-<main>
-<div class="wrap">
+<main><div class="wrap">
 
-<!-- ════════════════════════════════════════════════════════════ -->
-<!--  BANKING & FINANCIAL SERVICES                               -->
-<!-- ════════════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════ -->
+<!--  HEALTHCARE (latest — 3 projects, top domain) -->
+<!-- ══════════════════════════════════════════════ -->
+<section class="domain-section" data-section="healthcare">
+  <div class="domain-header">
+    <div class="domain-dot" style="background:var(--domain-healthcare)"></div>
+    <span class="domain-name">Healthcare &amp; Life Sciences</span>
+    <div class="domain-line"></div>
+  </div>
+
+  <!-- HCP/HCO – most recent project overall -->
+  <div class="card" data-domain="healthcare">
+    <div class="card-head">
+      <h2 class="card-name">HCP/HCO Lookup &amp; Consent Management Tool</h2>
+      <span class="card-duration">May 2026 – Jul 2026</span>
+    </div>
+    <div class="card-meta">
+      <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Senior Developer &amp; Onshore Lead</span></div>
+      <div class="meta-item"><span class="meta-label">Client</span><span class="meta-value client-name">AbbVie Healthcare &amp; Life Sciences</span></div>
+    </div>
+    <div class="tech-row">
+      <span class="tag">.NET MVC</span><span class="tag">Angular 20</span><span class="tag">SQL Server 18</span>
+      <span class="tag">Reltio MDM</span><span class="tag">OAuth 2.0</span><span class="tag">JWT</span>
+      <span class="tag">Azure DevOps</span><span class="tag">Task Scheduler</span><span class="tag">IIS</span>
+      <span class="tag">Visual Studio 2022</span><span class="tag">VS Code</span>
+    </div>
+    <div class="divider"></div>
+    <ul class="highlights">
+      <li>Led design and implementation of a web-based HCP/HCO lookup and consent management platform supporting AbbVie's OUS Transparency processes, enabling secure search, view, update, and creation of HCP/HCO master data through Reltio MDM integration.</li>
+      <li>Served as the sole onshore resource, coordinating a 5-member offshore team across the full SDLC — requirements gathering through production deployment, hypercare, and post-production support.</li>
+      <li>Engaged directly with the client onsite to clarify requirements and translate them into actionable scope for the offshore team, while personally coding select high-priority requirements.</li>
+      <li>Implemented role-based access, SSO/MA security, audit logging, and country-specific permissions across CRM and non-CRM countries, including weekly consent extract delivery to PwC.</li>
+      <li>Built batch jobs and stored procedures; collaborated with integration and federation teams to support data enrichment, consent tracking, and API-driven updates.</li>
+      <li>Designed and deployed Azure DevOps CI/CD pipelines for the application and batch jobs, including environment-specific configuration overrides.</li>
+      <li>Identified and implemented performance optimizations that significantly improved application responsiveness on this legacy Phase 2 enhancement engagement.</li>
+      <li>Delivered the full engagement with a minimal team in under 2 months with zero escalations.</li>
+    </ul>
+    <div class="impact"><strong>⚡ Impact:</strong> Delivered a compliance-critical consent management platform for global Transparency reporting with a lean onshore/offshore team, completing all Phase 2 enhancements on time with zero escalations and a measurable performance improvement.</div>
+  </div>
+
+  <!-- Intake Portal -->
+  <div class="card" data-domain="healthcare">
+    <div class="card-head">
+      <h2 class="card-name">AbbVie Product Quality Intake Portal</h2>
+      <span class="card-duration">Nov 2025 – Apr 2026</span>
+    </div>
+    <div class="card-meta">
+      <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Senior Developer</span></div>
+      <div class="meta-item"><span class="meta-label">Client</span><span class="meta-value client-name">AbbVie Healthcare &amp; Life Sciences</span></div>
+    </div>
+    <div class="tech-row">
+      <span class="tag">Angular 20</span><span class="tag">.NET 9</span><span class="tag">C#.NET</span>
+      <span class="tag">TypeScript</span><span class="tag">HTML5</span><span class="tag">CSS3</span>
+      <span class="tag">OAuth 2.0</span><span class="tag">JWT</span><span class="tag">Azure DevOps</span>
+      <span class="tag">RxJS</span><span class="tag">SQL Server 18</span>
+    </div>
+    <div class="divider"></div>
+    <ul class="highlights">
+      <li>Contributed to the design and development of a web-based intake portal enabling PMQA analysts to generate complaints using information provided by healthcare professionals (HCPs) and patients.</li>
+      <li>Built structured, multi-tab intake workflows — Authentication, Start, Reporter, Patient, Event/Product, Claims, Return, and Submit — for standardized capture of intake information.</li>
+      <li>Developed Angular 20 front-end features integrated with .NET 9 / C#.NET backend services, supporting submission of intake data to OneTrack which generates complaints, returns, claims, and events, returning a tracking ID for follow-up.</li>
+      <li>Implemented submission workflows that trigger automated email notifications to relevant teams, improving visibility, communication, and timely follow-up.</li>
+      <li>Implemented role-based access control and secure authentication using OAuth 2.0 and JWT.</li>
+      <li>Participated in the full SDLC and contributed to CI/CD pipeline setup on Azure DevOps for build and deployment automation.</li>
+    </ul>
+    <div class="impact"><strong>⚡ Impact:</strong> Delivered a structured, standardized intake workflow for PMQA analysts that streamlined complaint, claim, and return creation in OneTrack, improving data consistency and cross-team follow-up visibility.</div>
+  </div>
+
+  <!-- PAS / Altera -->
+  <div class="card" data-domain="healthcare">
+    <div class="card-head">
+      <h2 class="card-name">Patient Administration Solution (PAS) – Altera OASIS Replatforming</h2>
+      <span class="card-duration">Mar 2024 – Feb 2025</span>
+    </div>
+    <div class="card-meta">
+      <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Senior Front-End Developer</span></div>
+      <div class="meta-item"><span class="meta-label">Client</span><span class="meta-value client-name">Altera Digital Health</span></div>
+    </div>
+    <div class="tech-row">
+      <span class="tag">Angular 15</span><span class="tag">TypeScript</span><span class="tag">Node.js</span>
+      <span class="tag">SASS</span><span class="tag">Angular Material</span><span class="tag">Bootstrap 5</span>
+      <span class="tag">.NET</span><span class="tag">AWS</span>
+    </div>
+    <div class="divider"></div>
+    <ul class="highlights">
+      <li>Contributed to the OASIS replatforming initiative for Altera Digital Health — modernizing a clinical Patient Administration Solution used by hospital and health system clients.</li>
+      <li>Translated UX wireframes into responsive, accessible Angular 15 pages covering patient registration, scheduling, and administrative workflows.</li>
+      <li>Integrated front-end modules with .NET-based backend APIs for patient data retrieval and content delivery platform integration.</li>
+      <li>Coordinated with QA and production support teams to ensure release readiness, defect resolution, and smooth rollout across client environments.</li>
+      <li>Mentored junior developers on Angular Material component usage, SASS architecture, and integration patterns.</li>
+    </ul>
+    <div class="impact"><strong>⚡ Impact:</strong> Delivered modernized patient administration interfaces that improved clinician workflow efficiency and UI performance on a healthcare platform serving multiple hospital systems.</div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ -->
+<!--  BANKING & FINANCIAL SERVICES                 -->
+<!-- ══════════════════════════════════════════════ -->
 <section class="domain-section" data-section="banking">
   <div class="domain-header">
     <div class="domain-dot" style="background:var(--domain-banking)"></div>
@@ -384,7 +270,7 @@ footer a:hover{color:var(--cyan);text-decoration:none}
   <div class="card" data-domain="banking">
     <div class="card-head">
       <h2 class="card-name">Truist Developer Center</h2>
-      <span class="card-duration">Feb 2025 – Present</span>
+      <span class="card-duration">Feb 2025 – Nov 2025</span>
     </div>
     <div class="card-meta">
       <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Lead Front-End Developer</span></div>
@@ -484,46 +370,9 @@ footer a:hover{color:var(--cyan);text-decoration:none}
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════════ -->
-<!--  HEALTHCARE                                                 -->
-<!-- ════════════════════════════════════════════════════════════ -->
-<section class="domain-section" data-section="healthcare">
-  <div class="domain-header">
-    <div class="domain-dot" style="background:var(--domain-healthcare)"></div>
-    <span class="domain-name">Healthcare</span>
-    <div class="domain-line"></div>
-  </div>
-
-  <!-- PAS -->
-  <div class="card" data-domain="healthcare">
-    <div class="card-head">
-      <h2 class="card-name">Patient Administration Solution (PAS) – Altera OASIS Replatforming</h2>
-      <span class="card-duration">Mar 2024 – Feb 2025</span>
-    </div>
-    <div class="card-meta">
-      <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Senior Front-End Developer</span></div>
-      <div class="meta-item"><span class="meta-label">Client</span><span class="meta-value client-name">Altera Digital Health</span></div>
-    </div>
-    <div class="tech-row">
-      <span class="tag">Angular 15</span><span class="tag">TypeScript</span><span class="tag">Node.js</span>
-      <span class="tag">SASS</span><span class="tag">Angular Material</span><span class="tag">Bootstrap 5</span>
-      <span class="tag">.NET</span><span class="tag">AWS</span>
-    </div>
-    <div class="divider"></div>
-    <ul class="highlights">
-      <li>Contributed to the OASIS replatforming initiative for Altera Digital Health — modernizing a clinical Patient Administration Solution used by hospital and health system clients.</li>
-      <li>Translated UX wireframes into responsive, accessible Angular 15 pages covering patient registration, scheduling, and administrative workflows.</li>
-      <li>Integrated front-end modules with .NET-based backend APIs for patient data retrieval and content delivery platform integration.</li>
-      <li>Coordinated with QA and production support teams to ensure release readiness, defect resolution, and smooth rollout across client environments.</li>
-      <li>Mentored junior developers on Angular Material component usage, SASS architecture, and integration patterns.</li>
-    </ul>
-    <div class="impact"><strong>⚡ Impact:</strong> Delivered modernized patient administration interfaces that improved clinician workflow efficiency and UI performance on a healthcare platform serving multiple hospital systems.</div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════════ -->
-<!--  TRAVEL & E-COMMERCE                                        -->
-<!-- ════════════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════ -->
+<!--  TRAVEL & E-COMMERCE                          -->
+<!-- ══════════════════════════════════════════════ -->
 <section class="domain-section" data-section="travel">
   <div class="domain-header">
     <div class="domain-dot" style="background:var(--domain-travel)"></div>
@@ -531,7 +380,6 @@ footer a:hover{color:var(--cyan);text-decoration:none}
     <div class="domain-line"></div>
   </div>
 
-  <!-- Alpharooms -->
   <div class="card" data-domain="travel">
     <div class="card-head">
       <h2 class="card-name">Alpharooms.com – Hotel Booking Platform</h2>
@@ -552,10 +400,9 @@ footer a:hover{color:var(--cyan);text-decoration:none}
       <li>Improved page load speed by 20% through front-end optimization and NGINX configuration improvements.</li>
       <li>Coordinated with the UK product team for feature releases, A/B testing, and client-driven enhancement cycles.</li>
     </ul>
-    <div class="impact"><strong>⚡ Impact:</strong> Contributed to a high-traffic travel booking platform with improved 20% load performance and a more responsive, conversion-ready booking UI.</div>
+    <div class="impact"><strong>⚡ Impact:</strong> Contributed to a high-traffic travel booking platform with 20% improved load performance and a more responsive, conversion-ready booking UI.</div>
   </div>
 
-  <!-- Teletext Holidays -->
   <div class="card" data-domain="travel">
     <div class="card-head">
       <h2 class="card-name">Teletext Holidays – Travel Content Platform</h2>
@@ -577,9 +424,9 @@ footer a:hover{color:var(--cyan);text-decoration:none}
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════════ -->
-<!--  EDUCATION TECHNOLOGY                                       -->
-<!-- ════════════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════ -->
+<!--  EDUCATION                                    -->
+<!-- ══════════════════════════════════════════════ -->
 <section class="domain-section" data-section="education">
   <div class="domain-header">
     <div class="domain-dot" style="background:var(--domain-education)"></div>
@@ -587,7 +434,6 @@ footer a:hover{color:var(--cyan);text-decoration:none}
     <div class="domain-line"></div>
   </div>
 
-  <!-- TeacherWorkspace & TeachNext -->
   <div class="card" data-domain="education">
     <div class="card-head">
       <h2 class="card-name">TeacherWorkspace &amp; TeachNext – EdTech Platforms</h2>
@@ -609,7 +455,6 @@ footer a:hover{color:var(--cyan);text-decoration:none}
     </ul>
   </div>
 
-  <!-- NextERP suite -->
   <div class="card" data-domain="education">
     <div class="card-head">
       <h2 class="card-name">NextERP, NextBooks &amp; NextDeeksha – School Management Suite</h2>
@@ -621,20 +466,20 @@ footer a:hover{color:var(--cyan);text-decoration:none}
     </div>
     <div class="tech-row">
       <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Bootstrap</span>
-      <span class="tag">jQuery</span><span class="tag">PHP</span><span class="tag">Photoshop</span>
+      <span class="tag">jQuery</span><span class="tag">PHP</span>
     </div>
     <div class="divider"></div>
     <ul class="highlights">
       <li>Developed a suite of school management web applications covering ERP, digital book previews, and teacher training portals.</li>
-      <li>Built responsive, PSD-to-HTML web pages ensuring cross-browser compatibility for student, teacher, and admin roles.</li>
+      <li>Built responsive PSD-to-HTML web pages ensuring cross-browser compatibility for student, teacher, and admin roles.</li>
       <li>Managed client-specific ERP versions and coordinated pre-live testing and deployment.</li>
     </ul>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════════════════ -->
-<!--  DIGITAL MARKETING                                          -->
-<!-- ════════════════════════════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════════ -->
+<!--  DIGITAL MARKETING                            -->
+<!-- ══════════════════════════════════════════════ -->
 <section class="domain-section" data-section="marketing">
   <div class="domain-header">
     <div class="domain-dot" style="background:var(--domain-marketing)"></div>
@@ -642,7 +487,6 @@ footer a:hover{color:var(--cyan);text-decoration:none}
     <div class="domain-line"></div>
   </div>
 
-  <!-- Mfloat -->
   <div class="card" data-domain="marketing">
     <div class="card-head">
       <h2 class="card-name">Mfloat.in – Referral Marketing Platform</h2>
@@ -654,7 +498,7 @@ footer a:hover{color:var(--cyan);text-decoration:none}
     </div>
     <div class="tech-row">
       <span class="tag">HTML5</span><span class="tag">JavaScript</span><span class="tag">jQuery</span>
-      <span class="tag">ASP.NET</span><span class="tag">ADO.NET</span><span class="tag">Photoshop</span>
+      <span class="tag">ASP.NET</span><span class="tag">ADO.NET</span>
     </div>
     <div class="divider"></div>
     <ul class="highlights">
@@ -666,10 +510,8 @@ footer a:hover{color:var(--cyan);text-decoration:none}
 
 <div class="no-results" id="noResults">No projects found for this filter.</div>
 
-</div><!-- /wrap -->
-</main>
+</div></main>
 
-<!-- ── FOOTER ──────────────────────────────────────────────────── -->
 <footer>
   <div class="wrap">
     <p class="footer-name">Narendra Reddy Chitta</p>
@@ -685,9 +527,8 @@ footer a:hover{color:var(--cyan);text-decoration:none}
 </footer>
 
 <script>
-// ── filter ────────────────────────────────────────────────────────
+// filter
 const filterBtns = document.querySelectorAll('.filter-btn');
-const cards = document.querySelectorAll('.card');
 const sections = document.querySelectorAll('.domain-section');
 const noResults = document.getElementById('noResults');
 
@@ -695,43 +536,33 @@ filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
     const f = btn.dataset.filter;
     let anyVisible = false;
-
     sections.forEach(sec => {
-      const secDomain = sec.dataset.section;
-      const secMatch = f === 'all' || secDomain === f;
-
       const secCards = sec.querySelectorAll('.card');
       let secHasVisible = false;
-
       secCards.forEach(card => {
         const match = f === 'all' || card.dataset.domain === f;
         card.classList.toggle('hidden', !match);
         if (match) { secHasVisible = true; anyVisible = true; }
       });
-
       sec.classList.toggle('hidden', !secHasVisible);
     });
-
     noResults.classList.toggle('show', !anyVisible);
   });
 });
 
-// ── scroll-reveal ─────────────────────────────────────────────────
+// scroll-reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, i * 60);
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
       observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-cards.forEach(card => observer.observe(card));
+document.querySelectorAll('.card').forEach(card => observer.observe(card));
 </script>
 </body>
 </html>
